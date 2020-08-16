@@ -1,0 +1,16 @@
+{
+  "monitoring": {
+    "grafana": [
+      {
+        "identifier": "grafana_token"
+      }
+    ],
+    "servers": [
+      {
+        "name": "",
+        "grafana_identifier": "",
+        "prometheus_host": ""
+      }
+    ]
+  }
+}
