@@ -7,8 +7,6 @@ import moment from 'moment'
 
 const TV = () => {
   // spotifyCurrent
-
-
   const fetcher = (...args) => fetch(...args).then(res => res.json())
 
   const { data, mutate, error } = useSWR('/api/spotify/current', fetcher)

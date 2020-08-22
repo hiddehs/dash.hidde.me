@@ -1,0 +1,88 @@
+{
+  "timestamp" : 1597608102364,
+  "context" : {
+    "external_urls" : {
+      "spotify" : "https://open.spotify.com/artist/4qG1qjeHfkASTdyRGbLWbV"
+    },
+    "href" : "https://api.spotify.com/v1/artists/4qG1qjeHfkASTdyRGbLWbV",
+    "type" : "artist",
+    "uri" : "spotify:artist:4qG1qjeHfkASTdyRGbLWbV"
+  },
+  "progress_ms" : 185142,
+  "item" : {
+    "album" : {
+      "album_type" : "album",
+      "artists" : [ {
+        "external_urls" : {
+          "spotify" : "https://open.spotify.com/artist/4qG1qjeHfkASTdyRGbLWbV"
+        },
+        "href" : "https://api.spotify.com/v1/artists/4qG1qjeHfkASTdyRGbLWbV",
+        "id" : "4qG1qjeHfkASTdyRGbLWbV",
+        "name" : "FJAAK",
+        "type" : "artist",
+        "uri" : "spotify:artist:4qG1qjeHfkASTdyRGbLWbV"
+      } ],
+      "available_markets" : [ "AD", "AE", "AL", "AR", "AT", "AU", "BA", "BE", "BG", "BH", "BO", "BR", "BY", "CA", "CH", "CL", "CO", "CR", "CY", "CZ", "DE", "DK", "DO", "DZ", "EC", "EE", "EG", "ES", "FI", "FR", "GB", "GR", "GT", "HK", "HN", "HR", "HU", "ID", "IE", "IL", "IN", "IS", "IT", "JO", "JP", "KW", "KZ", "LB", "LI", "LT", "LU", "LV", "MA", "MC", "MD", "ME", "MK", "MT", "MX", "MY", "NI", "NL", "NO", "NZ", "OM", "PA", "PE", "PH", "PL", "PS", "PT", "PY", "QA", "RO", "RS", "RU", "SA", "SE", "SG", "SI", "SK", "SV", "TH", "TN", "TR", "TW", "UA", "US", "UY", "VN", "XK", "ZA" ],
+      "external_urls" : {
+        "spotify" : "https://open.spotify.com/album/3pFWjCpLWiqqzuTcKRxwl7"
+      },
+      "href" : "https://api.spotify.com/v1/albums/3pFWjCpLWiqqzuTcKRxwl7",
+      "id" : "3pFWjCpLWiqqzuTcKRxwl7",
+      "images" : [ {
+        "height" : 640,
+        "url" : "https://i.scdn.co/image/ab67616d0000b27350aa278a6999cd523c0db3a0",
+        "width" : 640
+      }, {
+        "height" : 300,
+        "url" : "https://i.scdn.co/image/ab67616d00001e0250aa278a6999cd523c0db3a0",
+        "width" : 300
+      }, {
+        "height" : 64,
+        "url" : "https://i.scdn.co/image/ab67616d0000485150aa278a6999cd523c0db3a0",
+        "width" : 64
+      } ],
+      "name" : "HAVEL",
+      "release_date" : "2018-11-12",
+      "release_date_precision" : "day",
+      "total_tracks" : 10,
+      "type" : "album",
+      "uri" : "spotify:album:3pFWjCpLWiqqzuTcKRxwl7"
+    },
+    "artists" : [ {
+      "external_urls" : {
+        "spotify" : "https://open.spotify.com/artist/4qG1qjeHfkASTdyRGbLWbV"
+      },
+      "href" : "https://api.spotify.com/v1/artists/4qG1qjeHfkASTdyRGbLWbV",
+      "id" : "4qG1qjeHfkASTdyRGbLWbV",
+      "name" : "FJAAK",
+      "type" : "artist",
+      "uri" : "spotify:artist:4qG1qjeHfkASTdyRGbLWbV"
+    } ],
+    "available_markets" : [ "AD", "AE", "AL", "AR", "AT", "AU", "BA", "BE", "BG", "BH", "BO", "BR", "BY", "CA", "CH", "CL", "CO", "CR", "CY", "CZ", "DE", "DK", "DO", "DZ", "EC", "EE", "EG", "ES", "FI", "FR", "GB", "GR", "GT", "HK", "HN", "HR", "HU", "ID", "IE", "IL", "IN", "IS", "IT", "JO", "JP", "KW", "KZ", "LB", "LI", "LT", "LU", "LV", "MA", "MC", "MD", "ME", "MK", "MT", "MX", "MY", "NI", "NL", "NO", "NZ", "OM", "PA", "PE", "PH", "PL", "PS", "PT", "PY", "QA", "RO", "RS", "RU", "SA", "SE", "SG", "SI", "SK", "SV", "TH", "TN", "TR", "TW", "UA", "US", "UY", "VN", "XK", "ZA" ],
+    "disc_number" : 1,
+    "duration_ms" : 233600,
+    "explicit" : false,
+    "external_ids" : {
+      "isrc" : "DEWX41800007"
+    },
+    "external_urls" : {
+      "spotify" : "https://open.spotify.com/track/22CNSM0lIlw4IYvNDcPpK7"
+    },
+    "href" : "https://api.spotify.com/v1/tracks/22CNSM0lIlw4IYvNDcPpK7",
+    "id" : "22CNSM0lIlw4IYvNDcPpK7",
+    "is_local" : false,
+    "name" : "I COULD NEVER LIVE WITHOUT YOU BY MY SIDE",
+    "popularity" : 31,
+    "preview_url" : "https://p.scdn.co/mp3-preview/e1ca9809cf71544e4924c5f8570a43bbf33fb04f?cid=280751d5056b413f9177b5182d665a69",
+    "track_number" : 3,
+    "type" : "track",
+    "uri" : "spotify:track:22CNSM0lIlw4IYvNDcPpK7"
+  },
+  "currently_playing_type" : "track",
+  "actions" : {
+    "disallows" : {
+      "resuming" : true
+    }
+  },
+  "is_playing" : true
+}
