@@ -10,11 +10,16 @@ export default async (req, res) => {
     res.json(r)
   } else {
     res.statusCode = r.status
-    r.json().then(async (r) => {
-      await res.json(r)
-    }).catch(async () => {
-      res.json({ error: await r.text() })
-    })
+    if ((await r.text()).toString().trim().length > 0) {
+      r.json().then(async (r) => {
+        res.json(r)
+      }).catch(async (r) => {
+        console.log(r)
+        res.json({ error: r })
+      })
+    } else {
+      res.json({error: "nodata"})
+    }
   }
 
 }

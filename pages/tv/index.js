@@ -78,7 +78,10 @@ const TV = () => {
 
   const { data, error, mutate } = useSWR(url, fetcher)
 
-  if (error) return <div>failed to load spotify</div>
+  if (error) {
+    console.log(error)
+    return <div>failed to load spotify</div>
+  }
   if (!data) return <div>loading...</div>
   if (data.error) {
     if (data.error.status === 401) {
