@@ -22,7 +22,9 @@ export default (req, res) => {
     },
   }).then((response) => {
     response.text().then(r => {
-      res.json(r)
+      res.redirect("/tv#" + (new Buffer(r).toString(
+        'base64')));
+      // res.json(r)
     })
   })
 
