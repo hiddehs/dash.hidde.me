@@ -17,11 +17,4 @@ export default async (req, res) => {
     })
   }
 
-  // .then((r) => {
-  //
-  // }).catch(() => {
-  //   res.statusCode = 400
-  //   res.json({ error: 'Failed to request currently-playing' })
-  // })
-
 }

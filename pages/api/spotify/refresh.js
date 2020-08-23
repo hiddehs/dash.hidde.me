@@ -2,7 +2,7 @@ import SpotifyConfig from './spotifyConfig'
 import * as querystring from 'querystring'
 
 export default async (req, res) => {
-// console.log((await req.body.json()).refresh_token)
+
   const token = JSON.parse(req.body).refresh_token
   const config = SpotifyConfig(req)
   const code = req.query.code || null
