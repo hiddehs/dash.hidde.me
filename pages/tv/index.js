@@ -47,7 +47,11 @@ const TV = () => {
         }).
         then(async (r) => {
           processSpotifyAuth(await r.json())
-        })
+        }).catch((e)=>{
+          console.log("rfreshing failed ")
+          console.log(e)
+          window.location = '/api/spotify/authorize'
+      })
     }
 
     if (!localStorage.getItem('spotify_access_token')) {
@@ -83,8 +87,11 @@ const TV = () => {
   if (!data) return <div>loading...</div>
   if (data.error) {
     if (data.error.status === 401) {
+      console.log(data.error)
       if (process.browser) {
         window.location = '/api/spotify/authorize'
+      }else{
+        console.log("not browser so no redirect")
       }
     }
   } else {
