@@ -15,7 +15,6 @@ export class GrafanaFetcher {
   }
 
   async fetch (url) {
-    // console.log(url)
     return await fetch(url,
       { headers: { 'Authorization': 'Bearer ' + this.apiKey } })
   }
@@ -40,7 +39,7 @@ export class GrafanaFetcher {
   }
 
   async fetchPrometheus (query, start = null, end = null, step = 300) {
-    if (!start) start = moment().add(-10, 'minutes').unix()
+    if (!start) start = moment().add(-30, 'minutes').unix()
     if (!end) end = moment().unix()
 
     // &start=1597562100&end=1597583700&step=300
