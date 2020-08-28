@@ -1,4 +1,4 @@
-import SpotifyConfig from './spotifyConfig'
+import SpotifyConfig from '../../../lib/spotify/spotifyConfig'
 import * as querystring from 'querystring'
 
 export default async (req, res) => {

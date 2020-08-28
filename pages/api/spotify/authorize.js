@@ -1,5 +1,5 @@
 import * as querystring from 'querystring'
-import SpotifyConfig from './spotifyConfig'
+import SpotifyConfig from '../../../lib/spotify/spotifyConfig'
 
 export default (req, res) => {
 

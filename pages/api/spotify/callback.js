@@ -1,6 +1,6 @@
 import * as querystring from 'querystring'
 import { loadGetInitialProps } from 'next/dist/next-server/lib/utils'
-import SpotifyConfig from './spotifyConfig'
+import SpotifyConfig from '../../../lib/spotify/spotifyConfig'
 
 export default (req, res) => {
 

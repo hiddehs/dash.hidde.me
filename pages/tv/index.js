@@ -37,9 +37,7 @@ const TV = () => {
     }
   }
   let access_token = ''
-  if (!process.browser) {
-    // return "notbrowser"
-  } else {
+  if (process.browser) {
 
     const refreshToken = (refresh_token) => {
       fetch('/api/spotify/refresh',

@@ -1,4 +1,12 @@
+import Config from '../../../lib/config'
 
 export default async (req, res) => {
-  res.json({success:true})
+
+  const config = Config()
+
+  config.servers.forEach(s => {
+    s.loadStats()
+  })
+
+  res.json({ success: true, servers: config.getServers() })
 }
