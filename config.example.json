@@ -2,14 +2,16 @@
   "monitoring": {
     "grafana": [
       {
-        "identifier": "grafana_token"
+        "identifier": "id",
+        "url": "grafana_api_endpoint",
+        "api_key": "grafana_api_token"
       }
     ],
     "servers": [
       {
         "name": "",
         "grafana_identifier": "",
-        "prometheus_host": ""
+        "prometheus_ds_id": ""
       }
     ]
   }
