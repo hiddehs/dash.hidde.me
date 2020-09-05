@@ -8,7 +8,7 @@ import auth from '../api/user/auth'
 import authHandler from '../../lib/auth/authHandler'
 
 const TV = () => {
-
+let fullScreen;
   // spotifyCurrent
   let npData = false
   const processSpotifyAuth = (spotifyPayload) => {
@@ -119,12 +119,25 @@ const TV = () => {
       mutate()
     }, timeLeft)
 
+
+    fullScreen = () =>{
+      const elem = document.documentElement;
+      if (elem.requestFullscreen) {
+        elem.requestFullscreen();
+      } else if (elem.mozRequestFullScreen) { /* Firefox */
+        elem.mozRequestFullScreen();
+      } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari and Opera */
+        elem.webkitRequestFullscreen();
+      } else if (elem.msRequestFullscreen) { /* IE/Edge */
+        elem.msRequestFullscreen();
+      }
+    }
   }
 
   return (
     <>
-      <div id="tv" className="wrapper px-24 grid grid-rows-4 h-screen">
-        <header className="row-span-1 h-full w-full flex items-center">
+      <div  id="tv" className="wrapper px-24 grid grid-rows-4 h-screen">
+        <header onClick={fullScreen} className="row-span-1 h-full w-full flex items-center">
           <div className="">
             <NowPlaying np={npData}/>
           </div>
@@ -133,7 +146,7 @@ const TV = () => {
         <main className="row-span-2">
           <ContentWrapper/>
         </main>
-        <footer
+        <footer onClick={fullScreen}
           className="grid row-span-1 overflow-hidden h-full w-full flex items-center">
           <div className="grid grid-cols-6">
             <Time className="col-span-4"/>
