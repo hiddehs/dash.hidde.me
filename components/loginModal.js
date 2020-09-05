@@ -1,7 +1,9 @@
 import { useState } from 'react'
+import { useRouter } from 'next/router'
 
 export default function LoginModal ({ visible, setVisibility }) {
 
+  const router = useRouter()
   const [pass, setPass] = useState('')
 
   const login = async () => {
@@ -9,6 +11,8 @@ export default function LoginModal ({ visible, setVisibility }) {
     const response = await result.json()
     if (response.ok && response.token) {
       localStorage.setItem('auth', response.token)
+      await router.push('/tv')
+      // await Router.push("/tv")
     }
   }
 

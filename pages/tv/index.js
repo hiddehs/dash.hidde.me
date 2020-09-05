@@ -4,8 +4,11 @@ import ContentWrapper from '../../components/content_wrapper'
 import NowPlayingBackground from '../../components/np_background'
 import useSWR from 'swr'
 import moment from 'moment'
+import auth from '../api/user/auth'
+import authHandler from '../../lib/authHandler'
 
 const TV = () => {
+
   // spotifyCurrent
   let npData = false
   const processSpotifyAuth = (spotifyPayload) => {
@@ -23,6 +26,10 @@ const TV = () => {
     }
   }
   if (process.browser) {
+
+    authHandler.then((b)=>{
+      if(!b) window.location = "/"
+    })
 
     if (location.hash) {
       const base_64 = location.hash.split('#')[1]
@@ -47,10 +54,10 @@ const TV = () => {
         }).
         then(async (r) => {
           processSpotifyAuth(await r.json())
-        }).catch((e)=>{
-          console.log("rfreshing failed ")
-          console.log(e)
-          window.location = '/api/spotify/authorize'
+        }).catch((e) => {
+        console.log('rfreshing failed ')
+        console.log(e)
+        window.location = '/api/spotify/authorize'
       })
     }
 
@@ -90,8 +97,8 @@ const TV = () => {
       console.log(data.error)
       if (process.browser) {
         window.location = '/api/spotify/authorize'
-      }else{
-        console.log("not browser so no redirect")
+      } else {
+        console.log('not browser so no redirect')
       }
     }
   } else {
