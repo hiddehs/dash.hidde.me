@@ -5,9 +5,13 @@ module.exports = {
     content: ['./components/**/*.js', './pages/**/*.js', './css/**/*.css'],
     options: {
       whitelist: [
+        'bg-red-500',
         'bg-red-600',
+        'bg-blue-500',
         'bg-blue-600',
+        'bg-orange-500',
         'bg-orange-600',
+        'bg-green-500',
         'bg-green-600',
         'bg-blue-800'],
     },
