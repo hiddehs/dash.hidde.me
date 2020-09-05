@@ -39,10 +39,8 @@ export class GrafanaFetcher {
   }
 
   async fetchPrometheus (query, start = null, end = null, step = 300) {
-    if (!start) start = moment().add(-30, 'minutes').unix()
+    if (!start) start = moment().add(-2, 'hours').unix()
     if (!end) end = moment().unix()
-
-    // &start=1597562100&end=1597583700&step=300
 
     let queryString = querystring.stringify({
       query: query,

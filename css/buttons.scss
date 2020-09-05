@@ -1,0 +1,43 @@
+
+.btn {
+  @apply py-3 px-4 border border-gray-900 leading-none font-medium inline-block;
+  border-width: 1.5px;
+
+  .hs-icon {
+    transition: .2s ease-in;
+  }
+}
+
+.btn.btn-square {
+  @apply px-3;
+}
+
+.btn.btn-sm {
+  @apply py-2 px-3 text-sm;
+}
+
+.btn.btn-sm.btn-square {
+  @apply p-2;
+}
+
+.btn:hover {
+  @apply bg-gray-900 text-gray-100;
+}
+
+.btn.btn-primary {
+  @apply bg-primary;
+}
+
+.btn.btn-outline-primary {
+  @apply border-primary;
+}
+
+.btn.btn-outline-primary:hover {
+  @apply bg-primary;
+}
+
+.btn:hover {
+  .link-arrow-right {
+    transform: translateX(3px);
+  }
+}
