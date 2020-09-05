@@ -5,7 +5,7 @@ import authHandler from '../lib/auth/authHandler'
 const Home = () => {
 
   const [loginModalVisible, setLoginModalVisible] = useState(false)
-  authHandler.then((b)=>{
+  if(process.browser) authHandler.then((b)=>{
     if(b) window.location = "/tv"
   })
 

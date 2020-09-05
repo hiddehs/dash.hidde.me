@@ -9,7 +9,7 @@ export default async (req, res) => {
       ok: true,
       token: Buffer.from(JSON.stringify({
         auth: AUTH.substr(0, 3),
-        exp: moment().add(2, 'second').valueOf(),
+        exp: moment().add(2, 'week').valueOf(),
       })).toString('base64'),
     })
     return
