@@ -89,6 +89,9 @@ let fullScreen;
 
   if (error) {
     console.log(error)
+    setTimeout(()=>{
+      location.reload()
+    }, 20000)
     return <div>failed to load spotify</div>
   }
   if (!data) return <div>loading...</div>
