@@ -5,7 +5,7 @@ import NowPlayingBackground from '../../components/np_background'
 import useSWR from 'swr'
 import moment from 'moment'
 import auth from '../api/user/auth'
-import authHandler from '../../lib/authHandler'
+import authHandler from '../../lib/auth/authHandler'
 
 const TV = () => {
 

@@ -1,6 +1,6 @@
 import LoginModal from '../components/loginModal'
 import { useState } from 'react'
-import authHandler from '../lib/authHandler'
+import authHandler from '../lib/auth/authHandler'
 
 const Home = () => {
 
