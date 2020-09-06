@@ -138,7 +138,7 @@ const TV = () => {
           <div className="">
             {spotifyError ? <p className="text-red-500">⚠️ Error while loading Spotify Data</p> : null}
             {(!spotifyData) ?
-              <p className="text-primary">Spotify = ⏳</p>
+              <p className="text-green-500">Spotify = ⏳</p>
               : <NowPlaying np={npData}/>}
 
           </div>
