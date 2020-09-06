@@ -4,11 +4,10 @@ import ContentWrapper from '../../components/content_wrapper'
 import NowPlayingBackground from '../../components/np_background'
 import useSWR from 'swr'
 import moment from 'moment'
-import auth from '../api/user/auth'
 import authHandler from '../../lib/auth/authHandler'
 
 const TV = () => {
-let fullScreen;
+  let fullScreen
   // spotifyCurrent
   let npData = false
   const processSpotifyAuth = (spotifyPayload) => {
@@ -27,22 +26,20 @@ let fullScreen;
   }
   if (process.browser) {
 
-    authHandler.then((b)=>{
-      if(!b) window.location = "/"
+    authHandler.then((b) => {
+      if (!b) window.location = '/'
     })
-
     if (location.hash) {
       const base_64 = location.hash.split('#')[1]
       if (base_64 !== 'null') {
         const base64decoded = Buffer.from(base_64, 'base64').toString('utf-8')
         let spotifyPayload = JSON.parse(base64decoded)
-        console.log(spotifyPayload)
         processSpotifyAuth(spotifyPayload)
-
         location.hash = ''
       }
     }
   }
+
   let access_token = ''
   if (process.browser) {
 
@@ -55,7 +52,7 @@ let fullScreen;
         then(async (r) => {
           processSpotifyAuth(await r.json())
         }).catch((e) => {
-        console.log('rfreshing failed ')
+        console.log('refreshing failed')
         console.log(e)
         window.location = '/api/spotify/authorize'
       })
@@ -66,7 +63,6 @@ let fullScreen;
     } else {
       access_token = localStorage.getItem('spotify_access_token')
     }
-
     if (localStorage.getItem('spotify_expire')) {
 
       const ms = moment(parseInt(localStorage.getItem('spotify_expire'))).
@@ -85,64 +81,66 @@ let fullScreen;
     headers: { 'Authorization': 'Bearer ' + access_token },
   }).then(res => res.json())
 
-  const { data, error, mutate } = useSWR(url, fetcher)
+  const { data: spotifyData, error: spotifyError, mutate: spotifyMutate } = useSWR(url, fetcher)
 
-  if (error) {
-    console.log(error)
-    setTimeout(()=>{
+  if (spotifyError) {
+    setTimeout(() => {
       location.reload()
     }, 20000)
+    console.log("dewdewa")
+    console.log(spotifyError)
     // return <div>failed to load spotify</div>
   }
-  if (!data) return <div>loading...</div>
-  if (data.error) {
-    if (data.error.status === 401) {
-      console.log(data.error)
+  // if (!spotifyData) return <div>loading...</div>
+  if (spotifyData && spotifyData.error) {
+    if (spotifyData.error.status === 401) {
+      console.log(spotifyData.error)
       if (process.browser) {
         window.location = '/api/spotify/authorize'
       } else {
-        console.log('not browser so no redirect')
+        // console.log('not browser so no redirect')
       }
     }
-  } else {
+  } else if (spotifyData) {
     npData = {
-      cover: data.item.album.images[0].url,
-      title: data.item.name,
-      artist: data.item.artists.map(a => a.name).join(', '),
-      album: data.item.album.name,
-      year: moment(data.item.album.release_date).year(),
+      cover: spotifyData.item.album.images[0].url,
+      title: spotifyData.item.name,
+      artist: spotifyData.item.artists.map(a => a.name).join(', '),
+      album: spotifyData.item.album.name,
+      year: moment(spotifyData.item.album.release_date).year(),
       playlist: null,
     }
-//
-    // // next refresh
-    //
-    var timeLeft = data.item.duration_ms - data.progress_ms + 1000
-    console.log('refreshing in ... ' + timeLeft + ' ..ms..')
+    // next refresh
+    var timeLeft = spotifyData.item.duration_ms - spotifyData.progress_ms + 1000
+    console.log(`refreshing in ... ${timeLeft} ..ms..`)
     setTimeout(() => {
-      mutate()
+      spotifyMutate()
     }, timeLeft)
 
-
-    fullScreen = () =>{
-      const elem = document.documentElement;
-      if (elem.requestFullscreen) {
-        elem.requestFullscreen();
-      } else if (elem.mozRequestFullScreen) { /* Firefox */
-        elem.mozRequestFullScreen();
-      } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari and Opera */
-        elem.webkitRequestFullscreen();
-      } else if (elem.msRequestFullscreen) { /* IE/Edge */
-        elem.msRequestFullscreen();
-      }
+  }
+  fullScreen = () => {
+    const elem = document.documentElement
+    if (elem.requestFullscreen) {
+      elem.requestFullscreen()
+    } else if (elem.mozRequestFullScreen) { /* Firefox */
+      elem.mozRequestFullScreen()
+    } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari and Opera */
+      elem.webkitRequestFullscreen()
+    } else if (elem.msRequestFullscreen) { /* IE/Edge */
+      elem.msRequestFullscreen()
     }
   }
 
   return (
     <>
-      <div  id="tv" className="wrapper px-24 grid grid-rows-4 h-screen">
+      <div id="tv" className="wrapper px-24 grid grid-rows-4 h-screen">
         <header onClick={fullScreen} className="row-span-1 h-full w-full flex items-center">
           <div className="">
-            <NowPlaying np={npData}/>
+            {spotifyError ? <p className="text-red-500">Error with loading Spotify Data</p> : null}
+            {(!spotifyData) ?
+              <p className="text-primary">Spotify = ⏳</p>
+              : <NowPlaying np={npData}/>}
+
           </div>
         </header>
 
@@ -150,7 +148,7 @@ let fullScreen;
           <ContentWrapper/>
         </main>
         <footer onClick={fullScreen}
-          className="grid row-span-1 overflow-hidden h-full w-full flex items-center">
+                className="grid row-span-1 overflow-hidden h-full w-full flex items-center">
           <div className="grid grid-cols-6">
             <Time className="col-span-4"/>
             <img src="logo.svg" alt="logo"
@@ -162,5 +160,4 @@ let fullScreen;
     </>
   )
 }
-
 export default TV
