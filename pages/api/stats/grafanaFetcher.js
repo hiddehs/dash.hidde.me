@@ -34,8 +34,20 @@ export class GrafanaFetcher {
     return 0
   }
 
-  async network () {
-    return { test: false }
+  // https://monitor.srv.hidde.me/api/datasources/proxy/5/api/v1/query_range?query=&start=1599369300&end=1599412500&step=300
+  async network (prometheus_ds_id, n_interface) {
+    this.prometheus_ds_id = prometheus_ds_id
+    const result = await this.fetchPrometheus(
+      `rate(node_network_transmit_bytes_total{instance=~"localhost:9100",job=~"node_exporter", device=~"${n_interface}"}[5m])`)
+    const data = await result.json()
+
+    if (data.data && data.data.result.length > 0 &&
+      data.data.result[0].values.length > 0) {
+      const values = data.data.result[0].values.map((v) => parseFloat(v[1]))
+      const sum = values.reduce((previous, current) => current += previous)
+      return sum / values.length
+    }
+    return 0;
   }
 
   async fetchPrometheus (query, start = null, end = null, step = 300) {

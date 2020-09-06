@@ -136,7 +136,7 @@ const TV = () => {
       <div id="tv" className="wrapper px-24 grid grid-rows-4 h-screen">
         <header onClick={fullScreen} className="row-span-1 h-full w-full flex items-center">
           <div className="">
-            {spotifyError ? <p className="text-red-500">Error with loading Spotify Data</p> : null}
+            {spotifyError ? <p className="text-red-500">⚠️ Error while loading Spotify Data</p> : null}
             {(!spotifyData) ?
               <p className="text-primary">Spotify = ⏳</p>
               : <NowPlaying np={npData}/>}
