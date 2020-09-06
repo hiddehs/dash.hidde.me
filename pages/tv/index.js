@@ -26,9 +26,10 @@ const TV = () => {
   }
   if (process.browser) {
 
-    authHandler.then((b) => {
-      if (!b) window.location = '/'
+    authHandler.catch(()=>{
+      window.location = '/'
     })
+
     if (location.hash) {
       const base_64 = location.hash.split('#')[1]
       if (base_64 !== 'null') {
