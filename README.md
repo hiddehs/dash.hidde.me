@@ -1,4 +1,5 @@
 # 🎛 dash.hidde.me
+![tumb](tumb.jpg)
 
 ## Configuration
 dash.hidde.me can be configured by using environment variables (`cp .env.example .env`)
